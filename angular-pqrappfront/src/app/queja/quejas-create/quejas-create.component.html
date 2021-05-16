@@ -1,0 +1,75 @@
+<h2 class="mt-2">Crear Queja</h2>
+<form [formGroup]="quejaForm" (ngSubmit)="createPeticion(quejaForm.value)">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="titulo"> Título de la queja </label>
+    <input
+      id="titulo"
+      type="text"
+      class="form-control"
+      formControlName="titulo"
+      placeholder="Título"
+      required
+    />
+  </div>
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    *ngIf="
+      quejaForm.get('titulo').hasError('required') &&
+      quejaForm.get('titulo').touched
+    "
+  >
+    Título requerido
+  </div>
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    *ngIf="
+      quejaForm.get('titulo').hasError('minlength') &&
+      quejaForm.get('titulo').touched
+    "
+  >
+    Longitud mínima de 3 caracteres
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="detalle"> Detalle de la queja </label>
+    <input
+      id="detalle"
+      type="text"
+      class="form-control"
+      formControlName="detalle"
+      placeholder="Detalle de la queja"
+      required
+    />
+  </div>
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    *ngIf="
+      quejaForm.get('detalle').hasError('required') &&
+      quejaForm.get('detalle').touched
+    "
+  >
+    Título requerido
+  </div>
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    *ngIf="
+      quejaForm.get('detalle').hasError('minlength') &&
+      quejaForm.get('detalle').touched
+    "
+  >
+    Longitud mínima de 10 caracteres
+  </div>
+
+  <div class="mt-4 form-inline justify-content-center align-self-center">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="quejaForm.invalid"
+    >
+      Crear
+    </button>
+    <button type="button" class="btn btn-danger" (click)="cancelCreation()">
+      Cancelar
+    </button>
+  </div>
+</form>

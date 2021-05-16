@@ -2,37 +2,37 @@ import { Peticion } from '../peticion/peticion';
 import { Queja } from '../queja/queja';
 
 export interface ReclamoPeticionResult {
-  id: Number;
-  idPeticion: Number;
-  titulo: String;
-  detalle: String;
+  id: number;
+  idPeticion: number;
+  titulo: string;
+  detalle: string;
   fechaDeCreacion: Date;
-  areaAdminDioRta: Boolean;
+  areaAdminDioRta: boolean;
   fechaDeRespuestaAdmin: Date;
-  respuestaAreaAdmin: String;
+  respuestaAreaAdmin: string;
   peticionesQuejas: Array<Peticion>;
 }
 
 export interface ReclamoQuejaResult {
-  id: Number;ø
-  idQueja: Number;
-  titulo: String;
-  detalle: String;
+  id: number;
+  idQueja: number;
+  titulo: string;
+  detalle: string;
   fechaDeCreacion: Date;
-  areaAdminDioRta: Boolean;
+  areaAdminDioRta: boolean;
   fechaDeRespuestaAdmin: Date;
-  respuestaAreaAdmin: String;
+  respuestaAreaAdmin: string;
   peticionesQuejas: Array<Queja>;
 }
 
 export interface Reclamo {
-  id: Number;
-  idPeticion: Number;
-  idQueja: Number;
-  titulo: String;
-  detalle: String;
+  id: number;
+  idPeticion: number;
+  idQueja: number;
+  titulo: string;
+  detalle: string;
   fechaDeCreacion: Date;
-  areaAdminDioRta: Boolean;
+  areaAdminDioRta: boolean;
   fechaDeRespuestaAdmin: Date;
-  respuestaAreaAdmin: String;
+  respuestaAreaAdmin: string;
 }

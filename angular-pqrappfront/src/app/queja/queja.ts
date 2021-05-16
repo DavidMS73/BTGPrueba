@@ -1,9 +1,9 @@
 export interface Queja {
-  id: Number;
-  titulo: String;
-  detalle: String;
+  id: number;
+  titulo: string;
+  detalle: string;
   fechaDeCreacion: Date;
-  areaAdminDioRta: Boolean;
+  areaAdminDioRta: boolean;
   fechaDeRespuestaAdmin: Date;
-  respuestaAreaAdmin: String;
+  respuestaAreaAdmin: string;
 }

@@ -1,0 +1,78 @@
+<h2 class="mt-2">Crear Petición</h2>
+<form
+  [formGroup]="peticionForm"
+  (ngSubmit)="createPeticion(peticionForm.value)"
+>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="titulo"> Título de la petición </label>
+    <input
+      id="titulo"
+      type="text"
+      class="form-control"
+      formControlName="titulo"
+      placeholder="Título"
+      required
+    />
+  </div>
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    *ngIf="
+      peticionForm.get('titulo').hasError('required') &&
+      peticionForm.get('titulo').touched
+    "
+  >
+    Título requerido
+  </div>
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    *ngIf="
+      peticionForm.get('titulo').hasError('minlength') &&
+      peticionForm.get('titulo').touched
+    "
+  >
+    Longitud mínima de 3 caracteres
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="detalle"> Detalle de la petición </label>
+    <input
+      id="detalle"
+      type="text"
+      class="form-control"
+      formControlName="detalle"
+      placeholder="Detalle de la petición"
+      required
+    />
+  </div>
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    *ngIf="
+      peticionForm.get('detalle').hasError('required') &&
+      peticionForm.get('detalle').touched
+    "
+  >
+    Título requerido
+  </div>
+  <div
+    class="alert alert-danger alert-dismissible fade show"
+    *ngIf="
+      peticionForm.get('detalle').hasError('minlength') &&
+      peticionForm.get('detalle').touched
+    "
+  >
+    Longitud mínima de 10 caracteres
+  </div>
+
+  <div class="mt-4 form-inline justify-content-center align-self-center">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="peticionForm.invalid"
+    >
+      Crear
+    </button>
+    <button type="button" class="btn btn-danger" (click)="cancelCreation()">
+      Cancelar
+    </button>
+  </div>
+</form>
