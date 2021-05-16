@@ -1,0 +1,35 @@
+<a class="btn btn-primary mt-2 mb-2" routerLink="/queja/new" role="button"
+  >Nueva Queja</a
+>
+
+<h3 class="mt-2">Mis quejas</h3>
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"># radicado</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Título</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Fecha rta área administrativa</th>
+        <th scope="col">Respuesta área administrativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let queja of quejas">
+        <th scope="row">{{ queja.id }}</th>
+        <td>{{ dateFixed(queja.fechaDeCreacion).toLocaleString() }}</td>
+        <td>{{ queja.titulo }}</td>
+        <td>{{ queja.detalle }}</td>
+        <td>
+          {{
+            queja.fechaDeRespuestaAdmin != null
+              ? dateFixed(queja.fechaDeRespuestaAdmin).toLocaleString()
+              : null
+          }}
+        </td>
+        <td>{{ queja.respuestaAreaAdmin }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

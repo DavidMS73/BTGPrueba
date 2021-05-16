@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/counter")
+@RequestMapping("/pqr/api/v1/counter")
 public class CounterController {
 
     @Autowired

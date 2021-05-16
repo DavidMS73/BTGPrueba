@@ -1,0 +1,68 @@
+<a class="btn btn-primary mt-2 mb-2" routerLink="/reclamo/new" role="button"
+  >Nuevo Reclamo</a
+>
+
+<h3 class="mt-2">Mis reclamos</h3>
+<h5 class="mt-2">Peticiones</h5>
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"># radicado reclamo</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Título</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Respuesta área administrativa reclamo</th>
+        <th scope="col"># radicado petición</th>
+        <th scope="col">Título petición</th>
+        <th scope="col">Respuesta área administrativa petición</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reclamoConPeticion of reclamosConPeticiones">
+        <th scope="row">{{ reclamoConPeticion.id }}</th>
+        <td>
+          {{ dateFixed(reclamoConPeticion.fechaDeCreacion).toLocaleString() }}
+        </td>
+        <td>{{ reclamoConPeticion.titulo }}</td>
+        <td>{{ reclamoConPeticion.detalle }}</td>
+        <td>{{ reclamoConPeticion.respuestaAreaAdmin }}</td>
+        <td>{{ reclamoConPeticion.idPeticion }}</td>
+        <td>{{ reclamoConPeticion.peticionesQuejas[0].titulo }}</td>
+        <td>{{ reclamoConPeticion.peticionesQuejas[0].respuestaAreaAdmin }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h5 class="mt-2">Quejas</h5>
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"># radicado reclamo</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Título</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Respuesta área administrativa reclamo</th>
+        <th scope="col"># radicado queja</th>
+        <th scope="col">Título queja</th>
+        <th scope="col">Respuesta área administrativa queja</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reclamoConQueja of reclamosConQuejas">
+        <th scope="row">{{ reclamoConQueja.id }}</th>
+        <td>
+          {{ dateFixed(reclamoConQueja.fechaDeCreacion).toLocaleString() }}
+        </td>
+        <td>{{ reclamoConQueja.titulo }}</td>
+        <td>{{ reclamoConQueja.detalle }}</td>
+        <td>{{ reclamoConQueja.respuestaAreaAdmin }}</td>
+        <td>{{ reclamoConQueja.idQueja }}</td>
+        <td>{{ reclamoConQueja.peticionesQuejas[0].titulo }}</td>
+        <td>{{ reclamoConQueja.peticionesQuejas[0].respuestaAreaAdmin }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,35 @@
+<a class="btn btn-primary mt-2 mb-2" routerLink="/peticion/new" role="button"
+  >Nueva Petición</a
+>
+
+<h3 class="mt-2">Mis peticiones</h3>
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"># radicado</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Título</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Fecha rta área administrativa</th>
+        <th scope="col">Respuesta área administrativa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let peticion of peticiones">
+        <th scope="row">{{ peticion.id }}</th>
+        <td>{{ dateFixed(peticion.fechaDeCreacion).toLocaleString() }}</td>
+        <td>{{ peticion.titulo }}</td>
+        <td>{{ peticion.detalle }}</td>
+        <td>
+          {{
+            peticion.fechaDeRespuestaAdmin != null
+              ? dateFixed(peticion.fechaDeRespuestaAdmin).toLocaleString()
+              : null
+          }}
+        </td>
+        <td>{{ peticion.respuestaAreaAdmin }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,6 +1,7 @@
 package com.btg.pqrappback.controllers;
 
 import com.btg.pqrappback.models.Counter;
+import com.btg.pqrappback.models.Peticion;
 import com.btg.pqrappback.models.Queja;
 import com.btg.pqrappback.repositories.CounterRepository;
 import com.btg.pqrappback.repositories.QuejaRepository;
@@ -10,12 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/queja")
+@RequestMapping("/pqr/api/v1/queja")
 public class QuejaController {
 
     @Autowired
@@ -27,6 +29,16 @@ public class QuejaController {
     @GetMapping
     public List<Queja> list() {
         return repository.findAll();
+    }
+
+    @GetMapping
+    @RequestMapping("/filter/reclamo")
+    public List<Queja> listReclamo() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_YEAR, -5);
+        Date newDate = calendar.getTime();
+        return repository.findByFechaDeCreacionLessThanOrAreaAdminDioRta(newDate, true);
     }
 
 

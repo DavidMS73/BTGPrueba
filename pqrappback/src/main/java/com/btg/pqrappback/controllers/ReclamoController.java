@@ -3,7 +3,9 @@ package com.btg.pqrappback.controllers;
 import com.btg.pqrappback.logic.ReclamoLogic;
 import com.btg.pqrappback.models.Counter;
 import com.btg.pqrappback.models.Reclamo;
+import com.btg.pqrappback.models.ReclamoPeticionQuejaResult;
 import com.btg.pqrappback.repositories.CounterRepository;
+import com.btg.pqrappback.repositories.ReclamoCustomRepository;
 import com.btg.pqrappback.repositories.ReclamoRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/reclamo")
+@RequestMapping("/pqr/api/v1/reclamo")
 public class ReclamoController {
 
     @Autowired
@@ -24,6 +26,9 @@ public class ReclamoController {
 
     @Autowired
     private ReclamoRepository repository;
+
+    @Autowired
+    private ReclamoCustomRepository reclamoCustomRepository;
 
     @Autowired
     private ReclamoLogic reclamoLogic;
@@ -38,6 +43,19 @@ public class ReclamoController {
     @RequestMapping("{id}")
     public Optional<Reclamo> get(@PathVariable Long id) {
         return repository.findById(id);
+    }
+
+
+    @GetMapping
+    @RequestMapping("/lookup/peticion")
+    public List<ReclamoPeticionQuejaResult> getReclamoPeticion() {
+        return reclamoCustomRepository.findAllByReclamoIdAndPeticionReclamoId();
+    }
+
+    @GetMapping
+    @RequestMapping("/lookup/queja")
+    public List<ReclamoPeticionQuejaResult> getReclamoQueja() {
+        return reclamoCustomRepository.findAllByReclamoIdAndQuejaReclamoId();
     }
 
     @PostMapping
