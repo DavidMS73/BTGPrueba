@@ -2,7 +2,6 @@ package com.btg.pqrappback.controllers;
 
 import com.btg.pqrappback.models.Counter;
 import com.btg.pqrappback.models.Peticion;
-import com.btg.pqrappback.models.Reclamo;
 import com.btg.pqrappback.repositories.CounterRepository;
 import com.btg.pqrappback.repositories.PeticionRepository;
 import org.springframework.beans.BeanUtils;

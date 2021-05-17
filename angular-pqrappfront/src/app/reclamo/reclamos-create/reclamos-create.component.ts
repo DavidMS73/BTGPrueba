@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Peticion } from 'src/app/peticion/peticion';
 import { Queja } from 'src/app/queja/queja';
 import { Reclamo } from '../reclamo';
@@ -22,7 +23,8 @@ export class ReclamosCreateComponent implements OnInit {
   constructor(
     private reclamoService: ReclamoService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.reclamoForm = this.formBuilder.group({
       titulo: ['', [Validators.required, Validators.minLength(3)]],
@@ -41,12 +43,15 @@ export class ReclamosCreateComponent implements OnInit {
     this.selectedOption === 0
       ? (reclamoC.idQueja = null)
       : (reclamoC.idPeticion = null);
+    console.log(reclamoC);
     this.reclamoService.createReclamo(reclamoC).subscribe(
       (peticion) => {
+        this.toastr.success('El reclamo fue creado correctamente');
         this.router.navigate(['/reclamo/list']);
         this.reclamoForm.reset();
       },
       (err) => {
+        this.toastr.error('Revisa si elegiste una petición o queja', 'Error');
         console.error(err, 'Error');
       }
     );

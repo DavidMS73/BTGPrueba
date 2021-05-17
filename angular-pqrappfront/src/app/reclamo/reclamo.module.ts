@@ -6,7 +6,8 @@ import { ReclamosListarComponent } from './reclamos-listar/reclamos-listar.compo
 import { HttpClientModule } from '@angular/common/http';
 import { ReclamosCreateComponent } from './reclamos-create/reclamos-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [ReclamosListarComponent, ReclamosCreateComponent],
   imports: [
@@ -14,6 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReclamoRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
 })
 export class ReclamoModule {}

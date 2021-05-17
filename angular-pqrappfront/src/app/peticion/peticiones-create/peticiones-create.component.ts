@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Peticion } from '../peticion';
 import { PeticionService } from '../peticion.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-peticiones-create',
@@ -15,7 +16,8 @@ export class PeticionesCreateComponent implements OnInit {
   constructor(
     private peticionService: PeticionService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.peticionForm = this.formBuilder.group({
       titulo: ['', [Validators.required, Validators.minLength(3)]],
@@ -31,10 +33,12 @@ export class PeticionesCreateComponent implements OnInit {
   createPeticion(peticionC: Peticion): void {
     this.peticionService.createPeticion(peticionC).subscribe(
       (peticion) => {
+        this.toastr.success('La petición fue creada correctamente');
         this.router.navigate(['/peticion/list']);
         this.peticionForm.reset();
       },
       (err) => {
+        this.toastr.error(err, 'Error');
         console.error(err, 'Error');
       }
     );

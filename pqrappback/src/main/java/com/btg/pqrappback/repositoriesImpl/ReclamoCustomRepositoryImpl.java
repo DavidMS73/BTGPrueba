@@ -1,6 +1,5 @@
 package com.btg.pqrappback.repositoriesImpl;
 
-import com.btg.pqrappback.models.Reclamo;
 import com.btg.pqrappback.models.ReclamoPeticionQuejaResult;
 import com.btg.pqrappback.repositories.ReclamoCustomRepository;
 import org.springframework.beans.factory.annotation.Autowired;

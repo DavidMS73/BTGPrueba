@@ -6,6 +6,8 @@ import { QuejasListarComponent } from './quejas-listar/quejas-listar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuejasCreateComponent } from './quejas-create/quejas-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [QuejasListarComponent, QuejasCreateComponent],
@@ -14,6 +16,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     QuejaRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
 })
 export class QuejaModule {}

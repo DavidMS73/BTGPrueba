@@ -6,6 +6,8 @@ import { PeticionesListarComponent } from './peticiones-listar/peticiones-listar
 import { HttpClientModule } from '@angular/common/http';
 import { PeticionesCreateComponent } from './peticiones-create/peticiones-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [PeticionesListarComponent, PeticionesCreateComponent],
@@ -14,6 +16,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     PeticionRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
 })
 export class PeticionModule {}
