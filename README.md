@@ -34,6 +34,18 @@ Está desarrollado en Angular 12.  Para ejecutar el front se deben ejecutar los 
  1. `npm install`: instala las dependencias necesarias para ejecutar el proyecto.
  2. `ng serve --open`: despliega un servidor sobre el puerto **4200** y abre una pestaña del navegador para visualizar la aplicación.
 
-Para el front-end se usó Bootstrap el cual es una biblioteca multiplataforma para facilitar la creación de aplicaciones web. Por defecto al ingresar a la aplicación siempre se dirigirá directamente a las peticiones que tiene el usuario.
+Para el front-end se usó Bootstrap el cual es una biblioteca multiplataforma para facilitar la creación de aplicaciones web. Por defecto al ingresar a la aplicación siempre se dirigirá directamente a las peticiones que tiene el usuario. Se creó una interfaz que fuera lo mas sencilla posible y cumpliera con los requerimientos solicitados.
+
+Es necesario aclarar que las verificaciones de título requerido y detalle son únicamente obligatorias en el front, el back no verifica estos campos.
+
+Por otra parte, en caso de que únicamente se consuma el API REST, la validación de que un reclamo sí pueda realizarse se realiza en el back. Además, como se muestra en el front únicamente se muestra la lista de opciones con las peticiones o quejas sobre las que es posible realizar un reclamo.
 
 ## Demo
+### Peticiones
+![Peticiones](https://github.com/DavidMS73/BTGPrueba/blob/main/videos/peticiones.gif)
+
+### Quejas
+![Peticiones](https://github.com/DavidMS73/BTGPrueba/blob/main/videos/quejas.gif)
+
+### Reclamos
+![Peticiones](https://github.com/DavidMS73/BTGPrueba/blob/main/videos/reclamos.gif)
