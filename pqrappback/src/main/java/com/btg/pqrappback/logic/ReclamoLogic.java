@@ -38,7 +38,7 @@ public class ReclamoLogic {
                 }
             }
         } else if (reclamo.getIdQueja() != null) {
-            Optional<Queja> quejaAntigua = quejaRepository.findById(reclamo.getIdPeticion());
+            Optional<Queja> quejaAntigua = quejaRepository.findById(reclamo.getIdQueja());
             if (!quejaAntigua.isEmpty()) {
                 Queja queja = quejaAntigua.get();
                 Calendar calendar = Calendar.getInstance();
