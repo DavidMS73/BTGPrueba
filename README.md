@@ -40,6 +40,30 @@ Es necesario aclarar que las verificaciones de título requerido y detalle son �
 
 Por otra parte, en caso de que únicamente se consuma el API REST, la validación de que un reclamo sí pueda realizarse se realiza en el back. Además, como se muestra en el front únicamente se muestra la lista de opciones con las peticiones o quejas sobre las que es posible realizar un reclamo.
 
+## API REST
+Las rutas habilitadas de las principales colecciones son:
+
+### Peticiones
+ - POST: http://localhost:5000/api/v1/peticion
+ - GET todos: http://localhost:5000/pqr/api/v1/peticion
+ - GET uno: http://localhost:5000/api/v1/peticion/:id, donde id corresponde al id de la petición
+ - PUT: http://localhost:5000/api/v1/peticion/:id, donde id corresponde al id de la petición
+
+### Quejas
+ - POST: http://localhost:5000/api/v1/queja
+ - GET todos: http://localhost:5000/pqr/api/v1/queja
+ - GET uno: http://localhost:5000/api/v1/queja/:id, donde id corresponde al id de la petición
+ - PUT: http://localhost:5000/api/v1/queja/:id, donde id corresponde al id de la petición
+
+
+### Reclamos
+ - POST: http://localhost:5000/api/v1/reclamo
+ - GET todos: http://localhost:5000/pqr/api/v1/reclamo
+ - GET uno: http://localhost:5000/api/v1/reclamo/:id, donde id corresponde al id de la petición
+ - PUT: http://localhost:5000/api/v1/reclamo/:id, donde id corresponde al id de la petición
+
+Es así que algunas mejoras que se pueden hacer son: habilitar la carga de archivos para PQR, habilitar la ruta para eliminar datos de las colecciones (DELETE), crear las variables de ambiente respectivas para mantener la seguridad de la aplicación, mejorar diseño y opciones de la interfaz, entre muchas otras más.
+
 ## Demo
 ### Peticiones
 ![Peticiones](https://github.com/DavidMS73/BTGPrueba/blob/main/videos/peticiones.gif)
